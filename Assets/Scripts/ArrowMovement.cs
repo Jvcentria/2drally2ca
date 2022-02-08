@@ -10,18 +10,45 @@ public class ArrowMovement : MonoBehaviour
     private bool moveLeft;
     private Rigidbody2D rb;
 
+    private float boostTimer;
+    private bool boosting;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         moveLeft = false;
         moveRight = false;
+
+        //speed = 10;
+        boostTimer = 0;
+        boosting = false;
     }
 
     // Update is called once per frame
     void Update()
     {
         Movement();
+
+        if (boosting)
+        {
+            boostTimer += Time.deltaTime;
+            if(boostTimer >= 3)
+            {
+                //speed = 10;
+                boostTimer = 0;
+                boosting = false;
+            }
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "speedBoost")
+        {
+            boosting = true;
+            speed = 10;
+        }
     }
 
     public void pointerDownLeft()
