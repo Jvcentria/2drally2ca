@@ -10,8 +10,13 @@ public class ArrowMovement : MonoBehaviour
     private bool moveLeft;
     private Rigidbody2D rb;
 
+    private bool countdownTime;
+
     private float boostTimer;
     private bool boosting;
+
+    public float jumpSpeed = 7.0f;
+    private float currentJumpSpeed;
 
     // Start is called before the first frame update
     void Start()
@@ -20,9 +25,10 @@ public class ArrowMovement : MonoBehaviour
         moveLeft = false;
         moveRight = false;
 
-        //speed = 10;
         boostTimer = 0;
         boosting = false;
+
+        currentJumpSpeed = jumpSpeed;
     }
 
     // Update is called once per frame
@@ -30,26 +36,10 @@ public class ArrowMovement : MonoBehaviour
     {
         Movement();
 
-        if (boosting)
-        {
-            boostTimer += Time.deltaTime;
-            if(boostTimer >= 3)
-            {
-                //speed = 10;
-                boostTimer = 0;
-                boosting = false;
-            }
-        }
+        
     }
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.tag == "speedBoost")
-        {
-            boosting = true;
-            speed = 10;
-        }
-    }
+    
 
     public void pointerDownLeft()
     {
@@ -82,7 +72,27 @@ public class ArrowMovement : MonoBehaviour
     }
 
     void Movement()
-    {
+    {/*
+        if(countdownTime)
+        {
+            if (moveLeft)
+            {
+                horizontalMove = -speed;
+            }
+            else if (moveRight)
+            {
+                horizontalMove = speed;
+            }
+            else
+            {
+                horizontalMove = 0;
+            }
+        }
+        else
+        {
+            //
+        }*/
+
         if (moveLeft)
         {
             horizontalMove = -speed;
@@ -95,10 +105,44 @@ public class ArrowMovement : MonoBehaviour
         {
             horizontalMove = 0;
         }
+
+        if (boosting)
+        {
+            boostTimer += Time.deltaTime;
+            if (boostTimer >= 3)
+            {
+                //speed = 10;
+                boostTimer = 2;
+                boosting = false;
+            }
+        }
     }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "speedBoost")
+        {
+            boosting = true;
+            speed = 10;
+            Destroy(other.gameObject);
+        }
+    } 
 
     private void FixedUpdate()
     {
         rb.velocity = new Vector2(horizontalMove, rb.velocity.y);
+    }
+
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        switch (hit.gameObject.tag)
+        {
+            case "JumpPad":
+                jumpSpeed = 25f;
+                break;
+            case "Ground": 
+                jumpSpeed = currentJumpSpeed;
+                break;
+        }
     }
 }

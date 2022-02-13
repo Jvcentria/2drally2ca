@@ -32,7 +32,7 @@ public class PointsScript : MonoBehaviour
         if (this.timer < 0f)
         {
             //tallentaa kerätyt kolikot
-            PlayerPrefs.SetFloat("Collect coins", this.coin);
+            PlayerPrefs.SetFloat("Coins", this.coin);//Collect coins
             SceneManager.LoadScene("FinishScene");
         }
     }

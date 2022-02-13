@@ -7,7 +7,7 @@ public class CountDownController : MonoBehaviour
 {
     public int countdownTime;
     public Text countdownDisplay;
-    
+    //bool 
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +26,7 @@ public class CountDownController : MonoBehaviour
         }
 
         countdownDisplay.text = "GO!";
-        
+        //ArrowMovement.instance.BeginGame();
         yield return new WaitForSeconds(1f);
         countdownDisplay.gameObject.SetActive(false);
     }
