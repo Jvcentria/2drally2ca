@@ -8,6 +8,6 @@ public class CoinSript : MonoBehaviour
     {
         ScoreTextScript.coinAmount += 1;
         Destroy(gameObject);
-        //GameObject.Find("SoundObject").GetComponents<AudioSource>()[0].Play();
+        GameObject.Find("SoundObject").GetComponents<AudioSource>()[0].Play();
     }
 }

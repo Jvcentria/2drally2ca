@@ -7,7 +7,9 @@ public class CountDownController : MonoBehaviour
 {
     public int countdownTime;
     public Text countdownDisplay;
-    //bool 
+     
+    public GameObject leftButton;
+    public GameObject rightButton;
 
     // Start is called before the first frame update
     void Start()
@@ -23,11 +25,14 @@ public class CountDownController : MonoBehaviour
             countdownDisplay.text = countdownTime.ToString();
             yield return new WaitForSeconds(1f);
             countdownTime--;
+            //GameObject.Find("SoundObject").GetComponents<AudioSource>()[1].Play();
         }
-
+        //GameObject.Find("SoundObject").GetComponents<AudioSource>()[1].Play();
         countdownDisplay.text = "GO!";
-        //ArrowMovement.instance.BeginGame();
+        //GameObject.Find("SoundObject").GetComponents<AudioSource>()[2].Play();
         yield return new WaitForSeconds(1f);
         countdownDisplay.gameObject.SetActive(false);
+        leftButton.SetActive(true);
+        rightButton.SetActive(true);
     }
 }

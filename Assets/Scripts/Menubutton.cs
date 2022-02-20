@@ -10,6 +10,11 @@ public class Menubutton : MonoBehaviour
         SceneManager.LoadScene("GameScene");
     }
 
+    public void NextGame()
+    {
+        SceneManager.LoadScene("Level2");
+    }
+
     public void RestartGame()
     {
         SceneManager.LoadScene("GameScene");

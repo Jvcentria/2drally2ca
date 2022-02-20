@@ -18,6 +18,7 @@ public class ArrowMovement : MonoBehaviour
     public float jumpSpeed = 7.0f;
     private float currentJumpSpeed;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +29,6 @@ public class ArrowMovement : MonoBehaviour
         boostTimer = 0;
         boosting = false;
 
-        currentJumpSpeed = jumpSpeed;
     }
 
     // Update is called once per frame
@@ -125,12 +125,14 @@ public class ArrowMovement : MonoBehaviour
             boosting = true;
             speed = 10;
             Destroy(other.gameObject);
+            GameObject.Find("SoundObject").GetComponents<AudioSource>()[3].Play();
         }
     } 
 
     private void FixedUpdate()
     {
         rb.velocity = new Vector2(horizontalMove, rb.velocity.y);
+        
     }
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
