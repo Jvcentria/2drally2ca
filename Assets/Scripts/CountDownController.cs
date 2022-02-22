@@ -29,7 +29,7 @@ public class CountDownController : MonoBehaviour
         }
         //GameObject.Find("SoundObject").GetComponents<AudioSource>()[1].Play();
         countdownDisplay.text = "GO!";
-        //GameObject.Find("SoundObject").GetComponents<AudioSource>()[2].Play();
+        GameObject.Find("SoundObject").GetComponents<AudioSource>()[2].Play();
         yield return new WaitForSeconds(1f);
         countdownDisplay.gameObject.SetActive(false);
         leftButton.SetActive(true);

@@ -33,7 +33,7 @@ public class PointsScript : MonoBehaviour
         {
             //tallentaa kerätyt kolikot
             PlayerPrefs.SetFloat("Coins", this.coin);//Collect coins
-            SceneManager.LoadScene("FinishScene");
+            SceneManager.LoadScene("LostScene");//FinishScene
         }
     }
 

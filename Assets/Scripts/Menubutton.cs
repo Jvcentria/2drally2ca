@@ -22,7 +22,7 @@ public class Menubutton : MonoBehaviour
 
     public void Menu()
     {
-        SceneManager.LoadScene("FinishScene");
+        SceneManager.LoadScene("MenuScene");
     }
 
     public void QuitGame()

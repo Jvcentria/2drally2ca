@@ -12,12 +12,18 @@ EditorBuildSettings:
     path: Assets/Scenes/GameScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/FinishScene.unity
-    guid: 21ddd7678adf244439142f577bef6741
+    path: Assets/Scenes/IntervalLevel.unity
+    guid: adf9cdc82c2a8f147aff56d110a5325d
   - enabled: 1
     path: Assets/Scenes/Level2.unity
     guid: f6a767e3fc93dec4486778dc0cdd6b1b
   - enabled: 1
-    path: Assets/Scenes/IntervalLevel.unity
-    guid: adf9cdc82c2a8f147aff56d110a5325d
+    path: Assets/Scenes/FinishScene.unity
+    guid: 21ddd7678adf244439142f577bef6741
+  - enabled: 1
+    path: Assets/Scenes/LostScene.unity
+    guid: 36bec80f705e83745b187a1ce8955976
+  - enabled: 1
+    path: Assets/Scenes/MenuScene.unity
+    guid: 0bde41753bd9e6d4bbe8d5a15d42344a
   m_configObjects: {}
